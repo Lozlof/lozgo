@@ -1,1 +1,3 @@
+package lozgo
 
+func IntInpSan
