@@ -25,7 +25,7 @@ func SanitizationIntInRange(input string, minNum, maxNum int) (int, error) {
 		// Printf calls Output to print to the standard logger. 
 		// Arguments are handled in the manner of fmt.Printf.
 		// Try simplifying the error logging to remove any unintended values from the output.
-		log.Printf("%q cannot be converted to an integer\n", input)
+		log.Printf("%q cannot be converted to an integer", input)
 		return 0, errors.New("input cannot be converted to an integer")
 	} else {
 		// Returns the valid integer if it's in range.
