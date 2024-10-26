@@ -11,7 +11,7 @@ import (
 // Takes a string input and two int's.
 // The string is sent off to sanitizationIntVerify to be verified and converted to an int.
 func SanitizationIntInRange(input string, minNum, maxNum int) (int, error) { 
-	fmt.Println("Debug output: Version 2")
+	fmt.Println("Debug output: Version 3")
 
 	// Set logging values.
 	log.SetPrefix("lozgo/SanitizationIntInRange: ")
@@ -38,6 +38,7 @@ func SanitizationIntInRange(input string, minNum, maxNum int) (int, error) {
 			// In Go's fmt package, %q and %d are formatting verbs used to represent different types of data in formatted output.
 			// If name = "bueller", then %q will output "bueller" (with quotes around the string).
 			// In the example, id = 17, so %d will output 17 as a standard integer without any extra formatting.
+			log.Printf("%d is not within the range %d - %d", convertedInt, minNum, maxNum)
 			return 0, fmt.Errorf("%d is not within the range %d - %d", convertedInt, minNum, maxNum)
 		}
 	}
