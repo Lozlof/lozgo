@@ -11,6 +11,8 @@ import (
 // Takes a string input and two int's.
 // The string is sent off to sanitizationIntVerify to be verified and converted to an int.
 func SanitizationIntInRange(input string, minNum, maxNum int) (int, error) { 
+	fmt.Println("Debug output: Version 1")
+
 	// Set logging values.
 	log.SetPrefix("lozgo/SanitizationIntInRange: ")
 	log.SetFlags(1)
