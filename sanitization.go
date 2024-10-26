@@ -4,13 +4,13 @@ import (
 	"errors"
 	"log"
 	"strconv"
+	"fmt"
 )
 
 // In Go, "error" is a predefined type.
 // Takes a string input and two int's.
 // The string is sent off to sanitizationIntVerify to be verified and converted to an int.
 func SanitizationIntInRange(input string, minNum, maxNum int) (int, error) { 
-
 	// Set logging values.
 	log.SetPrefix("lozgo/SanitizationIntInRange: ")
 	log.SetFlags(2)
@@ -20,25 +20,20 @@ func SanitizationIntInRange(input string, minNum, maxNum int) (int, error) {
 	// convertedInt will be initialized to the integer returned by strconv.Atoi.
 	convertedInt, err := strconv.Atoi(input)
 
+	// Returns 0 and error if input cannot be converted to an integer.
 	if err != nil {
 		log.Println('"',input,'"'," is not an integer" )
 		return 0, errors.New("input cannot be converted to an integer")
+	} else {
+		// Returns the valid integer if it's in range.
+		if convertedInt >= minNum && convertedInt <= maxNum {
+			return convertedInt, nil
+		} else {
+			// The Errorf function lets us use formatting features to create descriptive error messages. 
+			// In Go's fmt package, %q and %d are formatting verbs used to represent different types of data in formatted output.
+			// If name = "bueller", then %q will output "bueller" (with quotes around the string).
+			// In the example, id = 17, so %d will output 17 as a standard integer without any extra formatting.
+			return 0, fmt.Errorf("%d is not within the range %d - %d", convertedInt, minNum, maxNum)
+		}
 	}
-
-
-
-	// Declares the variables verifiedInt and err.
-	// The variables are initialized when sanitizationIntVerify returns the values.
-	verifiedInt, err := sanitizationIntVerify(number)
-
-	if err != nil {
-		log.Fatal(err)
-	}
-}
-
-func sanitizationIntVerify(number int) (int, error) {
-
-	log.SetPrefix("Function: sanitizationIntVerify: " )
-	log.SetFlags(2)
-
 }
