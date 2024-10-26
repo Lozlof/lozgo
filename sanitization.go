@@ -22,7 +22,7 @@ func SanitizationIntInRange(input string, minNum, maxNum int) (int, error) {
 
 	// Returns 0 and error if input cannot be converted to an integer.
 	if err != nil {
-		log.Println('"',input,'"'," is not an integer" )
+		log.Println(fmt.Errorf("%q cannot be converted to an integer", input))
 		return 0, errors.New("input cannot be converted to an integer")
 	} else {
 		// Returns the valid integer if it's in range.
