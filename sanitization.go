@@ -13,7 +13,7 @@ import (
 func SanitizationIntInRange(input string, minNum, maxNum int) (int, error) { 
 	// Set logging values.
 	log.SetPrefix("lozgo/SanitizationIntInRange: ")
-	log.SetFlags(2)
+	log.SetFlags(1)
 
 	// Attempts to convert "input" to an integer.
 	// If it is converted, err will be nil.
